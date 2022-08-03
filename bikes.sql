@@ -14,11 +14,11 @@ CREATE TABLE bikes (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     -- total NUMERIC(8,2) NOT NULL, --Don't do this here. Keep one source of truth
-    sold_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    sold_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, --change to sold_at. this is very common
     customer_id INT NOT NULL REFERENCES customers
 );
 
-CREATE TABLE bikes_orders (
+CREATE TABLE bikes_orders ( --change to bikes_orders
     id SERIAL PRIMARY KEY,
     sale_price NUMERIC(10,2) NOT NULL --don't default -- change to (10,2) for convention.
     note TEXT DEFAULT '',--making this an empty string makes it a falsy python value
